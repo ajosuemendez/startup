@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Header from "./Header";
-import response from "../dummy_responses/response";
 import Device from "./Device";
 
 export default function Recommendations() {
     //GET Response Data
-    const devices = response.devices;
-
+    const {state} = useLocation();
+    const { devices } = state; 
     const deviceList = devices.map((elem)=>{
         return <Device 
                 id={elem._id}

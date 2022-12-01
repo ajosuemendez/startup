@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Header from "./Header";
+import axios from 'axios';
 
 export default function Home() {
 
@@ -16,9 +17,25 @@ export default function Home() {
 
     const navigate = useNavigate();
 
-    const {register, handleSubmit} = useForm();
-
-
+    const { register, handleSubmit } = useForm();
+    
+//   let [responseData, setResponseData] = React.useState([]);
+//   const fetchData = React.useCallback(() => {
+//     axios({
+//       "method": "GET",
+//       "url": "https://cleist.herokuapp.com/department",
+//     })
+//     .then((response) => {
+//         setResponseData(response.data.map((department) => department.name))
+//     })
+//     .catch((error) => {
+//       console.log(error)
+//     })
+//   }, [])
+//     React.useEffect(() => {
+//         fetchData()
+//     }, [fetchData])
+    
     //Event Functions
     function onChangeHandler(event) {
         const {name, value} = event.target;
@@ -31,11 +48,25 @@ export default function Home() {
         })
     }
 
-    function submitHandler() {
+    async function submitHandler() {
         //Request
         console.log(form);
-        //Redirect
-        navigate("/recommendations");
+        var config = {
+            method: 'post',
+            url: 'https://cleist.herokuapp.com/recommendations',
+            headers: { },
+            data : form
+        };
+        const response = await axios(config);
+        if (response.data.message === "SUCCESS") {
+            navigate("/recommendations", { state: { devices: response.data.devices } });
+        }
+        else if (response.data.message === "INVALID_BUDGET") {
+            alert("Invalid budget please increase your budget")
+        }
+        else {
+            throw Error("Invalid request")
+        }
     }
 
     return(
@@ -49,8 +80,6 @@ export default function Home() {
                     <option value="">--Choose--</option>
                     <option value="IT">IT</option>
                     <option value="Finance">Finance</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Sales">Sales</option>
                 </select>
                 <br/>
                 <br/>
