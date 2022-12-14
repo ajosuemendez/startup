@@ -15,47 +15,80 @@ code {
 
 h1{
   margin: 0;
+  font-family: 'Inria Serif';
+  font-size: 48px;
+  color: #AF7B51;
 }
 p{
   margin: 5px;
 }
 
 .div--header{
-  
-  position: relative;
-  background-color: #00796B;
-  height: 100px;
+  display: flex;
+  height: 16vh;
+  background-color:#00796B;
+  align-items: center;
+  padding-left: 12vh;
 }
 
-.header--logo{
+.div--footer{
   position: absolute;
-  margin: auto;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-}
-
-.div--start{
-  background-color: #233A44;
-}
-
-.start--header{
-  height: 10vh;
-  padding: 20px;
-  color: #D9D9D9;
+  display: flex;
+  height: 16vh;
+  background-color:#00796B;
+  justify-content: center;
   text-align: center;
 }
 
-.start--body{
-  position: relative;
-  height: 84vh;
+.footer--copyright{
+  font-family: 'Inria', italic;
+  font-size: 12px;
+  color: white;
+  position: absolute;
+  bottom: 1vh;
+  left: 0;
+  right: 0;
+}
+
+.home--wrapper{
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex: 1;
+  padding: 4vh;
+  flex-direction: column;
+  text-align: center;
+}
+
+.home-wrapper0{
+  flex: 1;
+}
+
+.cleist--btn{
+  background-color: #00796B;
+}
+
+.div--start{
+  display: flex;
+  background-color: #233A44;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
 }
 
 .start--logo{
-  margin: auto;
-  height: 80px;
-  padding-bottom: 30px;
+  padding-bottom: 4vh;
+  height: 48vh;
+  width:auto;
+}
+
+.start--h1{
+  padding-bottom: 4vh;
+  color: white;
 }
 
 .start--button{
@@ -63,30 +96,46 @@ p{
   border-radius: 10px;
   border: none;
   color: white;
-  padding: 10px 30px 18px 30px;
+  padding: 16px 192px 12px 192px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 65px;
+  font-size: 32px;
+  font-family: 'Inria', bold;
+}
+
+.start--button:hover{
+  background-color: #00796B;
+  color:#D3D3D3;
+}
+
+.start--copyright{
+  color: white;
   position: absolute;
-  margin: auto;
-  top: 25%;
-  left: 44%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  align-self: center; 
+  bottom: 1vh;
+  left: 0;
+  right: 0;
+  font-family: 'Inria', italic;
+  font-size: 12px;
 }
 
 .generic--button{
-  background-color: #01A592;
-  color: white;
+  background-color: #01A592; /* Green */
   border-radius: 10px;
   border: none;
-  padding: 10px 10px;
+  color: white;
+  padding: 12px 64px 6px 64px;
   text-align: center;
-  display: inline-block;
-  font-size: 20px;
   text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  font-family: 'Inria', bold;
+}
+
+.generic--button:hover{
+  background-color: #00796B;
+  color:#D3D3D3;
+  cursor: pointer;
 }
 
 .div--device{
@@ -103,3 +152,68 @@ p{
   max-height: 200px;
   max-width: 200px;
 }
+
+.select--label{
+  display: inline-block;
+  border-radius: 99px;
+  color: white;
+  padding: 4px 8px 0px 8px;
+  font-size: 24;
+  font-family: 'Inria', bold;
+  border-width: 0;
+}
+
+.select--label:hover{
+  cursor: pointer;
+  color:#E0E0E0;
+}
+
+.home--item{
+  display: flex;
+  align-items: center;
+  height: 7vh;
+  font-family: 'Inria', bold 400;
+}
+
+.home--item--value{
+  display: flex;
+  align-items: center;
+  height: 7vh;
+  padding-left: 32px;
+}
+
+.selector{
+  background-color: #233A44;
+  color: white;
+  width: 20vh;
+  border-width: 0;
+  height: 3vh;
+  font-family: 'Inria', bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.selector:active{
+  background-color: #233A44;
+  border-width: 0;
+}
+
+.form--budget{
+  font-family: 'Inria', bold;
+}
+
+.form--budget::-webkit-inner-spin-button {
+  background-color: #01A592;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.header--headline{
+  color: white;
+  padding-left: 32px;
+  font-size: 24px;
+}
+
