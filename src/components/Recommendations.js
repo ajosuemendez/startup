@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Device from "./Device";
+import Footer from "./Footer";
 
 export default function Recommendations() {
     //GET Response Data
@@ -20,13 +21,26 @@ export default function Recommendations() {
     })
 
     return(
-        <div>
+        <div style={{height: '100vh'}}>
             <Header/>
-            <h1>Recommendations</h1>
-            <br/>
-            {deviceList}
-            <br/>
-            <Link to="/home" className="generic--button"> Back</Link>
+            <div style={{
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                flexDirection: 'column', 
+                flex: 1, 
+                height: '68vh'}}>
+                <div>
+                    <h1>Recommendations</h1>
+                </div>
+                <br/>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                    {deviceList}
+                </div>
+                <br/>
+                <Link to="/home" className="generic--button"> Back</Link>
+            </div>
+            <Footer />
         </div> 
     );
 }

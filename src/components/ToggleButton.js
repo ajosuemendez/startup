@@ -11,6 +11,7 @@ export function ToggleButtonGroupControlled(props) {
         } else {
             setValue([val]);
             props.onChange([val])
+            
         }
     } else {
         let temp;

@@ -13,6 +13,9 @@ export default function Home() {
     const userData = {
         budget : 0,
         department : "",
+        os: "",
+        remote: false,
+        software: [],
     }
 
     //Hooks
@@ -51,6 +54,15 @@ export default function Home() {
         })
     }
 
+    function onChangeCustom(name, value) {
+        setForm(prev => {
+            return {
+                ...prev,
+                [name] : value,
+            }
+        })
+    }
+
     async function submitHandler() {
         //Request
         console.log(form);
@@ -77,9 +89,9 @@ export default function Home() {
             <Header/>
             <div className="home--wrapper">
                 <div>
-                    <h1>Tell us what you need and we do the rest for you!</h1>
+                    <h1>Tell us what you need and we do the rest!</h1>
                 </div>
-            <br/>
+                <br/>
             <form style={{
                 display: 'flex', 
                 justifyContent: 'center', 
@@ -108,7 +120,11 @@ export default function Home() {
                     </div>
                     <div>
                         <div className="home--item--value">
-                            <ToggleButtonGroupControlled id="department" singleSelect={true} label={["IT", "Finance"]} onChange={(res) => onChangeHandler(res[0])}/>
+                            <ToggleButtonGroupControlled 
+                            id="department" 
+                            singleSelect={true} 
+                            label={["IT", "Finance"]} 
+                            onChange={(res) => onChangeCustom("department", res[0])}/>
                         </div>
                         <div className="home--item--value">
                             <input 
@@ -123,19 +139,19 @@ export default function Home() {
                             onChange={onChangeHandler}/>
                         </div>
                         <div className="home--item--value">
-                            <ToggleButtonGroupControlled singleSelect={true} label={["MacOS", "Windows"]} />
+                            <ToggleButtonGroupControlled singleSelect={true} label={["MacOS", "Windows"]} onChange={(res) => onChangeCustom("os", res)} />
                         </div>
                         <div className="home--item--value">
-                            <CleistSwitch />
+                            <CleistSwitch onChange={(res) => onChangeCustom("remote", res)}/>
                         </div>
                         <div className="home--item--value">
-                            <ToggleButtonGroupControlled label={["AdobeXD", "Figma", "Illustrator", "Zeplin"]} />
+                            <ToggleButtonGroupControlled label={["AdobeXD", "Figma", "Illustrator", "Zeplin"]} onChange={(res) => onChangeCustom("software", res)} />
                         </div>
                     </div>
                 </div>
                 <br/>
                 <br/>
-                    <button className="generic--button">Check the Result</button>
+                    <button onClick={handleSubmit(submitHandler)} className="generic--button">Check the Result</button>
             </form>
             </div>
             <Footer />

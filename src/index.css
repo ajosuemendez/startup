@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,6 +12,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  height: 100%;
 }
 
 h1{
@@ -32,39 +37,31 @@ p{
 }
 
 .div--footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
   height: 16vh;
   background-color:#00796B;
   justify-content: center;
   text-align: center;
+  align-items: flex-end;
 }
 
 .footer--copyright{
   font-family: 'Inria', italic;
   font-size: 12px;
   color: white;
-  position: absolute;
-  bottom: 1vh;
-  left: 0;
-  right: 0;
 }
 
 .home--wrapper{
   display: flex;
-  align-items: stretch;
-  justify-content: center;
-  flex: 1;
-  padding: 4vh;
   flex-direction: column;
+  height: 68vh;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
 .home-wrapper0{
-  flex: 1;
+  height: 100vh;
 }
 
 .cleist--btn{
